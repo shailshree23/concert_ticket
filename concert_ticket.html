@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert Tickets</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background-color: #222;
+            padding: 1rem 2rem;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .hero-section {
+            background: url('https://source.unsplash.com/1600x900/?concert,stage') no-repeat center center/cover;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;s
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .btn-custom {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        .btn-custom:hover {
+            background-color: #e60000;
+            transform: scale(1.1);
+        }
+        .tickets-section, .dates-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+        .tickets-section h2, .dates-section h2 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-body h5 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .card-body p {
+            color: #555;
+        }
+        .dates-list {
+            list-style: none;
+            padding: 0;
+        }
+        .dates-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dates-list li:hover {
+            background-color: #e6e6e6;
+        }
+        .date-icon {
+            color: #ff4d4d;
+            margin-right: 10px;
+        }
+        .date-info {
+            flex-grow: 1;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Concert</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tickets">Tickets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#dates">Upcoming Dates</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="container">
+        <h1>Taylor Swift Live Concert</h1>
+        <p>Experience the magic live in concert</p>
+        <a href="#tickets" class="btn btn-custom btn-lg">Buy Tickets</a>
+    </div>
+</header>
+
+<!-- Tickets Section -->
+<section id="tickets" class="tickets-section">
+    <div class="container">
+        <h2>Choose Your Tickets</h2>
+        <div class="row">
+            <!-- VIP Ticket -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP Experience</h5>
+                        <p class="card-text">$1000 - Exclusive backstage access and premium seats.</p>
+                        <a href="#" class="btn btn-custom">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Front Row Ticket -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Front Row</h5>
+                        <p class="card-text">$500 - Best view in the house with front-row seats.</p>
+                        <a href="#" class="btn btn-custom">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- General Admission Ticket -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">General Admission</h5>
+                        <p class="card-text">$200 - Great views and sound throughout the venue.</p>
+                        <a href="#" class="btn btn-custom">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upcoming Dates Section -->
+<section id="dates" class="dates-section">
+    <div class="container">
+        <h2>Upcoming Tour Dates</h2>
+        <ul class="dates-list">
+            <li>
+                <span class="material-icons date-icon">event</span>
+                <div class="date-info">
+                    <h5>New York, NY</h5>
+                    <p>Madison Square Garden - August 10, 2024</p>
+                </div>
+            </li>
+            <li>
+                <span class="material-icons date-icon">event</span>
+                <div class="date-info">
+                    <h5>Los Angeles, CA</h5>
+                    <p>Staples Center - August 20, 2024</p>
+                </div>
+            </li>
+            <li>
+                <span class="material-icons date-icon">event</span>
+                <div class="date-info">
+                    <h5>Chicago, IL</h5>
+                    <p>United Center - August 30, 2024</p>
+                </div>
+            </li>
+            <li>
+                <span class="material-icons date-icon">event</span>
+                <div class="date-info">
+                    <h5>Miami, FL</h5>
+                    <p>American Airlines Arena
